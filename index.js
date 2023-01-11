@@ -18,6 +18,13 @@ const ShopObject=[{
     desc:"Lorem ipsum dolor, sit amet consectetur adipisicing.",
     name:"Mens Fashion",
     price:100
+},
+{
+    id:"kldfsfsdfsd",
+    imgname:"person_3.jpg",
+    desc:"Lorem ipsum dolor, sit amet consectetur adipisicing.",
+    name:"Mens Fashion",
+    price:100
 }
 ]
 
@@ -25,11 +32,13 @@ console.log(shop)
 
 let generateCard=()=>{
 
-    let {id,imgname,desc,name,price}=ShopObject
-    return (shop.innerHTML= `
-    <div id="${id}" class="item1">
-    <img width=230 src="images/${imgname}" alt="">
-    <div class="detail">
+    
+    return (shop.innerHTML=ShopObject.map((x)=>{
+        let {id,imgname,desc,name,price}=x
+       return `
+       <div id="${id}" class="item1">
+       <img width=230 src="images/${imgname}" alt="">
+       <div class="detail">
         <h3>${name}</h3>
         <p>${desc}</p>
         <div class="price-quantity">
@@ -41,6 +50,7 @@ let generateCard=()=>{
             </div>
         </div>
     </div>
-</div>`)
+</div>`
+    }))
 }
 generateCard()
